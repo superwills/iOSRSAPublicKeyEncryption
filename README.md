@@ -1,5 +1,15 @@
 iOSRSAPublicKeyEncryption describes how to encrypt data from a PUBLIC KEY in iOS using RSA.
 
+The main functions are in [SecKeyHelper.h](https://github.com/superwills/iOSRSAPublicKeyEncryption/blob/master/iOSRSA/SecKeyHelper.h):
+
+    // Loads a certificate located at certPATH (usually in your bundle)
+    SecKeyRef SecKeyFromPathAndSaveInKeyChain( NSString* certPATH, CFDataRef keyChainId )
+    
+    // Loads a SecKeyRef from Keychain (that you previously loaded from some certPATH)
+    SecKeyRef SecKeyFromKeyChain( CFDataRef keyChainId )
+    
+
+
 >       FACTS      
 
 1) YOU'RE NOT SUPPOSED TO LOAD PUBLIC KEYS IN IOS FROM 
