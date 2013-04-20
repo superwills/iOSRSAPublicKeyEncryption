@@ -24,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		9F591B9E172094080099233C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9FBF3BAB1723449B006AADD7 /* iOSRSAHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOSRSAHelper.h; sourceTree = "<group>"; };
 		9FC427C41721B654001312D1 /* certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = certificate.cer; path = iOSRSA/certificate.cer; sourceTree = "<group>"; };
 		9FE4977B172093DD00FFFDD1 /* iOSRSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSRSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FE4977E172093DD00FFFDD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -96,6 +97,7 @@
 				9FE49797172093DD00FFFDD1 /* ViewController.m */,
 				9FE49799172093DD00FFFDD1 /* ViewController.xib */,
 				9FE49785172093DD00FFFDD1 /* Supporting Files */,
+				9FBF3BAB1723449B006AADD7 /* iOSRSAHelper.h */,
 			);
 			path = iOSRSA;
 			sourceTree = "<group>";
