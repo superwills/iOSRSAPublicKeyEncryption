@@ -13,16 +13,16 @@ The basic steps are:
             HOW TO MAKE A CERTIFICATE
 
 
-#Make the -----RSA PRIVATE KEY----- file in PEM format
+### Make the -----RSA PRIVATE KEY----- file in PEM format
     $ openssl genrsa -out privKey.pem 2048
 
-#Make the -----CERTIFICATE REQUEST-----
+### Make the -----CERTIFICATE REQUEST-----
     $ openssl req -new -key privKey.pem -out certReq.pem
 
-#Make the actual -----CERTIFICATE-----
+### Make the actual -----CERTIFICATE-----
     $ openssl x509 -req -days 2000 -in certReq.pem -signkey privKey.pem -out tificate.pem
 
-#Make the DER certificate.crt file from the certificate.pem
+### Make the DER certificate.crt file from the certificate.pem
     $ openssl x509 -outform der -in certificate.pem -out certificate.cer
 
 SEE ALSO: [stackoverflow](http://stackoverflow.com/questions/9728799/using-an-rsa-public-key-on-/16096064#16096064)
