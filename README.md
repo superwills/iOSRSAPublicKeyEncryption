@@ -8,7 +8,7 @@ The main functions are in [SecKeyHelper.h](https://github.com/superwills/iOSRSAP
     // Loads a SecKeyRef from Keychain (that you previously loaded from some certPATH)
     SecKeyRef SecKeyFromKeyChain( CFDataRef keyChainId )
     
-
+Example of how to use is in the `testSecKey` function in [ViewController.m](https://github.com/superwills/iOSRSAPublicKeyEncryption/blob/master/iOSRSA/ViewController.m)
 
 >       FACTS      
 
