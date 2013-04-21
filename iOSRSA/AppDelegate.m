@@ -1,11 +1,3 @@
-//
-//  AppDelegate.m
-//  iOSRSA
-//
-//  Created by William Sherif on 4/18/13.
-//  Copyright (c) 2013 William Sherif. All rights reserved.
-//
-
 #import "AppDelegate.h"
 
 #import "ViewController.h"

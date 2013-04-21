@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F591B9F172094080099233C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F591B9E172094080099233C /* Security.framework */; };
+		9FB75DFE172439C70034F81B /* SecKeyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB75DFD172439C70034F81B /* SecKeyHelper.m */; };
 		9FC427C51721B654001312D1 /* certificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 9FC427C41721B654001312D1 /* certificate.cer */; };
 		9FE4977F172093DD00FFFDD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE4977E172093DD00FFFDD1 /* UIKit.framework */; };
 		9FE49781172093DD00FFFDD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE49780172093DD00FFFDD1 /* Foundation.framework */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		9F591B9E172094080099233C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9FB75DFD172439C70034F81B /* SecKeyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeyHelper.m; sourceTree = "<group>"; };
 		9FBF3BAB1723449B006AADD7 /* SecKeyHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecKeyHelper.h; sourceTree = "<group>"; };
 		9FC427C41721B654001312D1 /* certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = certificate.cer; path = iOSRSA/certificate.cer; sourceTree = "<group>"; };
 		9FE4977B172093DD00FFFDD1 /* iOSRSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSRSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				9FBF3BAB1723449B006AADD7 /* SecKeyHelper.h */,
+				9FB75DFD172439C70034F81B /* SecKeyHelper.m */,
 				9FE49796172093DD00FFFDD1 /* ViewController.h */,
 				9FE49797172093DD00FFFDD1 /* ViewController.m */,
 				9FE4978D172093DD00FFFDD1 /* AppDelegate.h */,
@@ -186,6 +189,7 @@
 				9FE4978B172093DD00FFFDD1 /* main.m in Sources */,
 				9FE4978F172093DD00FFFDD1 /* AppDelegate.m in Sources */,
 				9FE49798172093DD00FFFDD1 /* ViewController.m in Sources */,
+				9FB75DFE172439C70034F81B /* SecKeyHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
