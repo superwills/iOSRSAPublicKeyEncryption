@@ -10,9 +10,6 @@ void testSecKey()
   // MAY NOT USE char* OR UInt8* FOR THE POINTER TYPE. Encryption will fail if you do.
   
   // CREATE MY KEYCHAIN IDENTIFIER.  It has to be a CFDataRef.
-  // I include the NULL terminator in the CFDataRef by adding +1 to
-  // the strlen of the keychainIdStr (because strlen() doesn't count the NULL TERMINATOR
-  // even though it is there).
   CFDataRef CFKEYCHAINID = CFDataCreate( 0, keychainIdStr, sizeof(keychainIdStr) ) ;
   
   // If you want, we can DELETE the item corresponding to the CFKEYCHAINID
