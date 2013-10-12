@@ -7,7 +7,9 @@ void testSecKey()
   // THIS IS A STRING REPRESENTING THE GLOBAL IDENTIFIER FOR MY PUBLIC KEY CERTIFICATE
   // ON THE IOS "KEYCHAIN".
   const UInt8 keychainIdStr[] = "com.example.widgets.publickey" ; // YOU MUST USE A CHAR ARRAY[], YOU
-  // MAY NOT USE char* OR UInt8* FOR THE POINTER TYPE. Encryption will fail if you do.
+  // MAY NOT USE char* OR UInt8* FOR THE POINTER TYPE.
+  // Encryption will fail if you do.
+  // String must be NULL terminated, (the string literal above is implicitly null terminated by the compiler).
   
   // CREATE MY KEYCHAIN IDENTIFIER.  It has to be a CFDataRef.
   CFDataRef CFKEYCHAINID = CFDataCreate( 0, keychainIdStr, sizeof(keychainIdStr) ) ;
@@ -33,7 +35,8 @@ void testSecKey()
       return ;
     }
   }
-  
+  CFRelease( CFKEYCHAINID ) ; // no more use of CFKEYCHAINID needed
+    
   int blockSize = SecKeyGetBlockSize( PUBLICKEY ) ;
   printf( "THE MAX LENGTH OF DATA I CAN ENCRYPT IS %d BYTES\n", blockSize ) ;
   

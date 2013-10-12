@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		9F591B9F172094080099233C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F591B9E172094080099233C /* Security.framework */; };
-		9FB75DFE172439C70034F81B /* SecKeyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB75DFD172439C70034F81B /* SecKeyHelper.m */; };
+		9FB75DFE172439C70034F81B /* SecKeyHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FB75DFD172439C70034F81B /* SecKeyHelper.mm */; };
 		9FC427C51721B654001312D1 /* certificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 9FC427C41721B654001312D1 /* certificate.cer */; };
 		9FE4977F172093DD00FFFDD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE4977E172093DD00FFFDD1 /* UIKit.framework */; };
 		9FE49781172093DD00FFFDD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE49780172093DD00FFFDD1 /* Foundation.framework */; };
 		9FE49783172093DD00FFFDD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FE49782172093DD00FFFDD1 /* CoreGraphics.framework */; };
 		9FE49789172093DD00FFFDD1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9FE49787172093DD00FFFDD1 /* InfoPlist.strings */; };
 		9FE4978B172093DD00FFFDD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4978A172093DD00FFFDD1 /* main.m */; };
-		9FE4978F172093DD00FFFDD1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4978E172093DD00FFFDD1 /* AppDelegate.m */; };
+		9FE4978F172093DD00FFFDD1 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FE4978E172093DD00FFFDD1 /* AppDelegate.mm */; };
 		9FE49791172093DD00FFFDD1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE49790172093DD00FFFDD1 /* Default.png */; };
 		9FE49793172093DD00FFFDD1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE49792172093DD00FFFDD1 /* Default@2x.png */; };
 		9FE49795172093DD00FFFDD1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FE49794172093DD00FFFDD1 /* Default-568h@2x.png */; };
-		9FE49798172093DD00FFFDD1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FE49797172093DD00FFFDD1 /* ViewController.m */; };
+		9FE49798172093DD00FFFDD1 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9FE49797172093DD00FFFDD1 /* ViewController.mm */; };
 		9FE4979B172093DD00FFFDD1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE49799172093DD00FFFDD1 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9F591B9E172094080099233C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9FB75DFD172439C70034F81B /* SecKeyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecKeyHelper.m; sourceTree = "<group>"; };
+		9FB75DFD172439C70034F81B /* SecKeyHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SecKeyHelper.mm; sourceTree = "<group>"; };
 		9FBF3BAB1723449B006AADD7 /* SecKeyHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecKeyHelper.h; sourceTree = "<group>"; };
 		9FC427C41721B654001312D1 /* certificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = certificate.cer; path = iOSRSA/certificate.cer; sourceTree = "<group>"; };
 		9FE4977B172093DD00FFFDD1 /* iOSRSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSRSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,12 +37,12 @@
 		9FE4978A172093DD00FFFDD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9FE4978C172093DD00FFFDD1 /* iOSRSA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSRSA-Prefix.pch"; sourceTree = "<group>"; };
 		9FE4978D172093DD00FFFDD1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9FE4978E172093DD00FFFDD1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9FE4978E172093DD00FFFDD1 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		9FE49790172093DD00FFFDD1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9FE49792172093DD00FFFDD1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9FE49794172093DD00FFFDD1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9FE49796172093DD00FFFDD1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9FE49797172093DD00FFFDD1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9FE49797172093DD00FFFDD1 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		9FE4979A172093DD00FFFDD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,11 +94,11 @@
 			isa = PBXGroup;
 			children = (
 				9FBF3BAB1723449B006AADD7 /* SecKeyHelper.h */,
-				9FB75DFD172439C70034F81B /* SecKeyHelper.m */,
+				9FB75DFD172439C70034F81B /* SecKeyHelper.mm */,
 				9FE49796172093DD00FFFDD1 /* ViewController.h */,
-				9FE49797172093DD00FFFDD1 /* ViewController.m */,
+				9FE49797172093DD00FFFDD1 /* ViewController.mm */,
 				9FE4978D172093DD00FFFDD1 /* AppDelegate.h */,
-				9FE4978E172093DD00FFFDD1 /* AppDelegate.m */,
+				9FE4978E172093DD00FFFDD1 /* AppDelegate.mm */,
 				9FE49799172093DD00FFFDD1 /* ViewController.xib */,
 				9FE49785172093DD00FFFDD1 /* Supporting Files */,
 			);
@@ -187,9 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FE4978B172093DD00FFFDD1 /* main.m in Sources */,
-				9FE4978F172093DD00FFFDD1 /* AppDelegate.m in Sources */,
-				9FE49798172093DD00FFFDD1 /* ViewController.m in Sources */,
-				9FB75DFE172439C70034F81B /* SecKeyHelper.m in Sources */,
+				9FE4978F172093DD00FFFDD1 /* AppDelegate.mm in Sources */,
+				9FE49798172093DD00FFFDD1 /* ViewController.mm in Sources */,
+				9FB75DFE172439C70034F81B /* SecKeyHelper.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,22 @@ CFMutableDictionaryRef CFMutableDictionaryCreateEmpty()
 CFMutableDictionaryRef CreateDefaultSECKEYDictionary( CFDataRef keyChainId )
 {
   CFMutableDictionaryRef dic = CFMutableDictionaryCreateEmpty() ;
+  
+  // The kSecClass can be 1 of 5 types, kSecClassKey is to be used for cryptographic KEYS.
+  // see the header defn for kSecClassKey and http://stackoverflow.com/questions/11614047/what-makes-a-keychain-item-unique-in-ios
   CFDictionaryAddValue( dic, kSecClass, kSecClassKey ) ;
+  
+  // Set up the application identifier tag, so keychain knows this key
+  // is associated with our app.  `keyChainId` is called `keychainIdStr`
+  // (defined in ViewController.m).  You just use the same application tag
+  // for all keychain items that belong to the same app.  The application tag
+  // is like a KEYRING, __metaphorically speaking__.
   CFDictionaryAddValue( dic, kSecAttrApplicationTag, keyChainId ) ;
+  
+  // Now I tell you the TYPE of the key being RSA, (as opposed to kSecAttrKeyTypeEC,
+  // which would be an "elliptic curve" encryption type key (which I've never heard of prior to looking it up here)).
 	CFDictionaryAddValue( dic, kSecAttrKeyType, kSecAttrKeyTypeRSA ) ;
+  
   //CFDictionaryAddValue( dic, kSecReturnPersistentRef, kCFBooleanTrue ) ; // This makes some things fail. Leave it off
   // and work in local program memory space.
   return dic ;
@@ -192,4 +205,29 @@ void SecCertificatePrintInfo( SecCertificateRef cert )
   printf( "Certificate summary: %s\n", CFStringGetCStringPtr( certSummary, kCFStringEncodingMacRoman ) ) ;
   CFRelease(certSummary);
 }
+
+
+
+
+
+
+// Additional Sec* operations for CRUD data storage and retrieval (simple binary data)
+CFMutableDictionaryRef getKeylookup( const char* keyname )
+{
+  CFMutableDictionaryRef keyLookup = CFMutableDictionaryCreateEmpty() ;
+  CFDictionaryAddValue( keyLookup, kSecClass, kSecClassGenericPassword ) ; // "generic password" for arbitrary binary data
+  CFStringRef cfAccount = CFStringCreateWithCString( NULL, keyname, kCFStringEncodingMacRoman ) ;
+  CFDictionaryAddValue( keyLookup, kSecAttrAccount, cfAccount ) ;   // uniquely identify the row.
+  CFRelease( cfAccount ) ;
+  return keyLookup ;
+}
+
+bool SecDelete( const char* keyname )
+{
+  CFMutableDictionaryRef keyLookup = getKeylookup( keyname ) ;
+  bool success = SecCheck( SecItemDelete( keyLookup ), "SecItemDelete" ) ;
+  CFRelease( keyLookup ) ;
+  return success ;
+}
+
 

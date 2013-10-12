@@ -8,6 +8,8 @@ The code in this package is released under the ZLib license.
 https://github.com/superwills/iOSRSAPublicKeyEncryption
 SecKeyHelper.h -- iOS public key helper functions
 version 1.0.0, April 21, 2013 11:47a
+version 1.0.1, Oct 11, 2013 2:10p /+ SecCRUD* operations
+
 
 Copyright (C) 2013 William Sherif
 
@@ -144,6 +146,81 @@ SecKeyRef SecKeyFromPathAndSaveInKeyChain( NSString* certPATH, CFDataRef keyChai
 bool SecCertificateDeleteFromKeyChain( CFDataRef keyChainId );
 
 void SecCertificatePrintInfo( SecCertificateRef cert );
+
+
+
+// Additional Sec* operations for CRUD data storage and retrieval (simple binary data)
+CFMutableDictionaryRef getKeylookup( const char* keyname ) ;
+
+// provides serialization and deserialization for static types
+template <typename T>
+bool SecCreate( const char* keyname, const T* data )
+{
+  CFMutableDictionaryRef keyLookup = getKeylookup( keyname ) ;
+  CFDataRef cfData = CFDataCreate( 0, (const UInt8*)data, sizeof(T) ) ;
+  
+  // store binary data (any CFDataRef) in kSecAttrGeneric
+  // for a kSecClassGenericPassword type keychain entry
+  CFDictionaryAddValue( keyLookup, kSecAttrGeneric, cfData ) ;// the actual data we want to store.
+  bool success = SecCheck( SecItemAdd( keyLookup, NULL ), "SecItemAdd" ) ;
+  CFRelease( cfData ) ;
+  CFRelease( keyLookup ) ;
+  return success ;
+}
+
+// You should know the len, as sizeof(T)
+template <typename T>
+bool SecRead( const char* keyname, T* data )
+{
+  CFMutableDictionaryRef keyLookup = getKeylookup( keyname ) ;
+  CFDictionaryAddValue( keyLookup, kSecReturnAttributes, kCFBooleanTrue ) ; // makes it return a DICTIONARY
+  CFMutableDictionaryRef dataFromKeychain ;
+  OSStatus res = SecItemCopyMatching( keyLookup, (CFTypeRef *)&dataFromKeychain ) ;
+  CFRelease( keyLookup ) ;
+  
+  bool success = 0 ;
+  
+  if( res == noErr )
+  {
+    CFDataRef cfData = (CFDataRef)CFDictionaryGetValue( dataFromKeychain, kSecAttrGeneric ) ; // the cfData doesn't need CFRELEASE
+    // because it is just GETVALUE, NOT CREATE or COPY.  See http://stackoverflow.com/questions/10203990/
+    
+    const UInt8* datFromKC = CFDataGetBytePtr( cfData ) ;
+    if( cfData )
+    {
+      success = 1 ; // we succeeded in retrieving the data
+      memcpy( data, datFromKC, sizeof( T ) ) ; // copy sizeof(T) bytes.
+      // you're responsible to alloc `data`'s memory space.
+    }
+    else { puts( "ERR: kSecAttrGeneric field not set, no CFData" ) ; } // record found, but the kSecAttrGeneric field was not set
+    
+    CFRelease( dataFromKeychain ) ;
+    return success ; // ok
+  } //else {} // OTHER ERROR, such as NOT FOUND
+  
+  return success ; 
+}
+
+// Attempts to update, fails if row didn't exist (so creates it)
+template <typename T>
+bool SecUpdate( const char* keyname, const T* data )
+{
+  CFMutableDictionaryRef keyLookup = getKeylookup( keyname ) ;
+
+  // wrap the kvp to change in a dictionary
+  CFDataRef cfData = CFDataCreate( 0, (const UInt8*)data, sizeof(T) ) ;
+  CFMutableDictionaryRef dataAttrib = CFMutableDictionaryCreateEmpty() ;
+  CFDictionaryAddValue( dataAttrib, kSecAttrGeneric, cfData ) ;
+  
+  bool success = SecCheck( SecItemUpdate( keyLookup, dataAttrib ), "SecItemUpdate" ) ;
+  CFRelease( keyLookup ) ;
+  CFRelease( dataAttrib ) ;
+  CFRelease( cfData ) ;
+  
+  return success ;
+}
+
+bool SecDelete( const char* keyname ) ;
 
 
 #endif
