@@ -30,7 +30,7 @@ The basic steps are:
     $ openssl req -new -key privKey.pem -out certReq.pem
 
 ### Make the actual -----CERTIFICATE-----
-    $ openssl x509 -req -days 2000 -in certReq.pem -signkey privKey.pem -out tificate.pem
+    $ openssl x509 -req -days 2000 -in certReq.pem -signkey privKey.pem -out certificate.pem
 
 ### Make the DER certificate.crt file from the certificate.pem
     $ openssl x509 -outform der -in certificate.pem -out certificate.cer

@@ -36,7 +36,7 @@ void testSecKey()
     }
   }
   CFRelease( CFKEYCHAINID ) ; // no more use of CFKEYCHAINID needed
-    
+  
   int blockSize = SecKeyGetBlockSize( PUBLICKEY ) ;
   printf( "THE MAX LENGTH OF DATA I CAN ENCRYPT IS %d BYTES\n", blockSize ) ;
   
@@ -47,7 +47,8 @@ void testSecKey()
   printf( "ORIGINAL DATA:\n%s\n", (char*)binaryData ) ;
 
   uint8_t *encrypted = (uint8_t *)malloc( blockSize ) ;
-  size_t encryptedLen ;
+  size_t encryptedLen = blockSize ; // MUST set this to the size of encrypted, otherwise SecKeyEncrypt may fail.
+  // Docs: "cipherTextLen: On entry, the size of the buffer provided in the cipherText parameter. On return, the amount of data actually placed in the buffer."
   SecCheck( SecKeyEncrypt( PUBLICKEY, kSecPaddingNone, binaryData, blockSize, encrypted, &encryptedLen ), 
     "SecKeyEncrypt" ) ;
   free( binaryData ) ;
