@@ -1,6 +1,5 @@
 #import "ViewController.h"
 #import "SecKeyHelper.h"
-#include "/usr/include/base64.h" // https://github.com/superwills/NibbleAndAHalf/blob/master/NibbleAndAHalf/base64.h
 
 void testSecKey()
 {
@@ -54,17 +53,7 @@ void testSecKey()
   free( binaryData ) ;
   
   printf( "ENCODED %d bytes => %lu bytes\n", blockSize, encryptedLen ) ;
-  
-  int base64DataLen ;
-  char* base64Data = base64( encrypted, encryptedLen, &base64DataLen ) ;
-  printf( "B64( ENCRYPTED( <<BINARY DATA>> ) ) as %d base64 ascii chrs:\n%s\n", base64DataLen, base64Data ) ;
   free( encrypted ) ;
-  
-  
-  /// SEND base64Data across the net.
-
-
-  free( base64Data ) ;
 }
 
 @implementation ViewController
